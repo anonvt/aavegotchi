@@ -15,6 +15,16 @@
           Parcels fetched
         </template>
       </DataFetcher>
+      <DataFetcher
+        subject="channelings"
+        :use="useChannelings"
+        fetchProperty="initChannelings"
+        resultProperty="channelings"
+      >
+        <template #loaded>
+          Channelings fetched
+        </template>
+      </DataFetcher>
 
       <div style="margin: 20px 0;">
         The Realm maps on this site work best on fast computers - if loading parcels takes a long time, it probably won't work very well on your current device, sorry! You can try using a desktop or laptop instead.
@@ -32,6 +42,7 @@
 <script>
 import useCapabilities from '@/data/useCapabilities'
 import useParcels from '@/data/useParcels'
+import useChannelings from '@/data/useChannelings'
 import DataFetcher from './DataFetcher.vue'
 
 export default {
@@ -40,11 +51,13 @@ export default {
   },
   setup (props) {
     const { initParcels, fetchStatus } = useParcels()
+    const { initChannelings } = useChannelings()
     const { isNetworkSlow, isDeviceSlow } = useCapabilities()
     if (!isNetworkSlow.value && !isDeviceSlow.value) {
       initParcels()
+      initChannelings()
     }
-    return { fetchStatus, useParcels }
+    return { fetchStatus, useParcels, useChannelings }
   }
 }
 </script>

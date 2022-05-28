@@ -359,7 +359,7 @@
             @mousedown="onMouseDownParcel"
             @click.prevent="onClickParcel($event, parcel)"
           >
-            <rect
+            <!-- rect
               class="parcel"
               :class="{
                 'parcel--hidden-by-filter': !parcelsMatchingFilters[parcel.id]
@@ -369,6 +369,20 @@
               :width="parcel.width"
               :height="parcel.height"
               :fill="parcelColors[parcel.id] || parcelFallbackFill"
+            / -->
+          </a>
+          <a
+            v-for="channel in channelings"
+            :key="channel.parcel.id"
+            xlink:href="#"
+          >
+            <circle
+              :cx="channel.x"
+              :cy="channel.y"
+              :r="channel.spilloverRadius"
+              stroke="none"
+              fill="black"
+              opacity="0.07"
             />
           </a>
           <g v-show="mapConfig.showVortexes">
@@ -490,6 +504,7 @@ export default {
     viewBox: { type: String, default: `0 0 ${CITAADEL_WIDTH} ${CITAADEL_HEIGHT}` },
     aspectRatio: { type: Number, default: CITAADEL_ASPECT_RATIO },
     parcels: { type: Array, default: () => [] },
+    channelings: { type: Array, default: () => [] },
     parcelsMatchingFilters: { type: Object, default: () => ({}) }, /* parcel Id => boolean show */
     parcelColors: { type: Object, default: () => ({}) }, /* parcel Id => color */
     selectedParcel: { type: Object, default: null },

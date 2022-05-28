@@ -5,8 +5,8 @@
         <h1>The Citaadel</h1>
 
         <div style="margin-bottom: 20px; margin-right: 10px;">
-          <DataFetcherBaazaarListings />
-          <DataFetcherParcelOwners />
+          <!-- DataFetcherBaazaarListings />
+          <DataFetcherParcelOwners /-->
         </div>
 
         <MapConfig
@@ -348,6 +348,7 @@
           v-show="viewMode === 'map' || viewMode === 'both'"
           :mapConfig="mapConfig"
           :parcels="parcelsToDisplay"
+          :channelings="channelings"
           :parcelsMatchingFilters="parcelsMatchingFiltersForMap"
           :parcelColors="parcelColors"
           :selectedParcel="selectedParcel?.parcel"
@@ -435,11 +436,12 @@ import useParcels from '@/data/useParcels'
 import useBaazaarListings from '@/data/useBaazaarListings'
 import useParcelPrices from '@/data/useParcelPrices'
 import useParcelOwners from '@/data/useParcelOwners'
+import useChannelings from '@/data/useChannelings'
 import { WALLS } from '@/data/walls'
 import { SCALE_NAMES, SCALE_GRADIENTS, getSequentialScale } from './colorScales'
 import NumberDisplay from './NumberDisplay.vue'
-import DataFetcherBaazaarListings from './DataFetcherBaazaarListings.vue'
-import DataFetcherParcelOwners from './DataFetcherParcelOwners.vue'
+// import DataFetcherBaazaarListings from './DataFetcherBaazaarListings.vue'
+// import DataFetcherParcelOwners from './DataFetcherParcelOwners.vue'
 import PrereqParcels from './PrereqParcels.vue'
 import LayoutMapWithFilters from './LayoutMapWithFilters.vue'
 import PaartnerParcelDetails from './PaartnerParcelDetails.vue'
@@ -466,8 +468,8 @@ export default {
   components: {
     PrereqParcels,
     LayoutMapWithFilters,
-    DataFetcherBaazaarListings,
-    DataFetcherParcelOwners,
+    // DataFetcherBaazaarListings,
+    // DataFetcherParcelOwners,
     NumberDisplay,
     PaartnerParcelDetails,
     ParcelDetails,
@@ -964,6 +966,14 @@ export default {
       }
     )
 
+    const {
+      channelings
+    } = useChannelings()
+
+    window.setTimeout(function () {
+      window.location.reload()
+    }, 60000)
+
     return {
       parcelsFetchStatus,
       refDetailsMyParcels,
@@ -981,6 +991,7 @@ export default {
       SCALE_GRADIENTS,
       baazaarListingsFetchStatus,
       parcelsToDisplay,
+      channelings,
       parcelsMatchingFiltersForMap,
       numParcelsToDisplay,
       numParcelsMatchingFilters,
