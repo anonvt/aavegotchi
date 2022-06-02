@@ -15,16 +15,6 @@
           Parcels fetched
         </template>
       </DataFetcher>
-      <DataFetcher
-        subject="channelings"
-        :use="useChannelings"
-        fetchProperty="initChannelings"
-        resultProperty="channelings"
-      >
-        <template #loaded>
-          Channelings fetched
-        </template>
-      </DataFetcher>
 
       <div style="margin: 20px 0;">
         The Realm maps on this site work best on fast computers - if loading parcels takes a long time, it probably won't work very well on your current device, sorry! You can try using a desktop or laptop instead.
@@ -55,7 +45,7 @@ export default {
     const { isNetworkSlow, isDeviceSlow } = useCapabilities()
     if (!isNetworkSlow.value && !isDeviceSlow.value) {
       initParcels()
-      initChannelings()
+      setInterval(() => initChannelings(), 60000)
     }
     return { fetchStatus, useParcels, useChannelings }
   }

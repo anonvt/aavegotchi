@@ -12,7 +12,7 @@ const { status: fetchStatus, setLoading } = useStatus()
 
 const canSubmitFetch = computed(() => !fetchStatus.value.loading)
 
-const initChannelings = function () {
+const updateChannelings = function () {
   if (!canSubmitFetch.value) {
     return
   }
@@ -22,7 +22,7 @@ const initChannelings = function () {
     method: 'POST',
     body: JSON.stringify({
       query: `{
-        channelAlchemicaEvents(orderBy: timestamp, orderDirection: desc, where: { timestamp_gte: ${Math.floor(startDate / 1000) - 60 * 10} }) {
+        channelAlchemicaEvents(orderBy: timestamp, orderDirection: desc, where: { timestamp_gte: ${Math.floor(startDate / 1000) - 60 * 10}      }) {
             spilloverRadius
             parcel {
               id
@@ -52,6 +52,10 @@ const initChannelings = function () {
     console.error(error)
     setError('Error loading channelings')
   })
+}
+
+const initChannelings = function () {
+  updateChannelings()
 }
 
 export default function useChannelings () {

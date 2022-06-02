@@ -970,10 +970,6 @@ export default {
       channelings
     } = useChannelings()
 
-    window.setTimeout(function () {
-      window.location.reload()
-    }, 60000)
-
     return {
       parcelsFetchStatus,
       refDetailsMyParcels,
