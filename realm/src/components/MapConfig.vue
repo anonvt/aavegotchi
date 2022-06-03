@@ -109,7 +109,7 @@ const DEFAULT_COLORS = {
     // These colors are set by other UI, but stored here to take advantage of the color scheme management
     colorNotInAuction: '#eeeeee',
     colorMyParcels: '#FA34F3',
-    colorChannelings: 'black'
+    colorChannelings: '#000000'
   },
   dark: {
     colorRoads: '#80C1FF',
@@ -124,7 +124,7 @@ const DEFAULT_COLORS = {
     colorAlchemica: '#292929',
     colorNotInAuction: '#222222',
     colorMyParcels: '#FA34F3',
-    colorChannelings: 'white'
+    colorChannelings: '#FFFFFF'
   }
 }
 
@@ -133,6 +133,7 @@ const getDefaultValue = function () {
   const colors = DEFAULT_COLORS[colorScheme.value] || DEFAULT_COLORS.light
   return {
     unmatchedDisplay: 'outline', /* or 'hide' */
+    showChannelings: true,
     showRoads: true,
     showWalls: true,
     showDistricts: true,
