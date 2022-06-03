@@ -45,6 +45,7 @@ export default {
     const { isNetworkSlow, isDeviceSlow } = useCapabilities()
     if (!isNetworkSlow.value && !isDeviceSlow.value) {
       initParcels()
+      setTimeout(() => initChannelings(), 10000)
       setInterval(() => initChannelings(), 60000)
     }
     return { fetchStatus, useParcels, useChannelings }
