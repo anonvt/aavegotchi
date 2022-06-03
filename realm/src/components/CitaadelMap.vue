@@ -132,20 +132,22 @@
             />
             <feComposite in2="SourceAlpha" operator="in" />
           </filter>
-          <a
-            v-for="channel in channelings"
-            :key="channel.parcel.id"
-            xlink:href="#"
-          >
-            <circle
-              :cx="channel.x"
-              :cy="channel.y"
-              :r="channel.spilloverRadius"
-              stroke="none"
-              fill="black"
-              opacity="0.07"
-            />
-          </a>
+          <g v-show="mapConfig.showChannelings">
+            <a
+              v-for="channel in channelings"
+              :key="channel.parcel.id"
+              xlink:href="#"
+            >
+              <circle
+                :cx="channel.x"
+                :cy="channel.y"
+                :r="channel.spilloverRadius"
+                stroke="none"
+                :fill="mapConfig.colorChannelings"
+                opacity="0.07"
+              />
+            </a>
+          </g>
           <image
             v-show="mapConfig.showAlchemicaFud"
             x="0"

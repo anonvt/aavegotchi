@@ -42,6 +42,7 @@
       </div>
       <div
         v-for="feature in [
+          { id: 'Channelings', label: 'channelings' },
           { id: 'Roads', label: 'roads' },
           { id: 'Walls', label: 'walls' },
           { id: 'Districts', label: 'districts' },
@@ -107,7 +108,8 @@ const DEFAULT_COLORS = {
     colorAlchemica: '#E3E3E3',
     // These colors are set by other UI, but stored here to take advantage of the color scheme management
     colorNotInAuction: '#eeeeee',
-    colorMyParcels: '#FA34F3'
+    colorMyParcels: '#FA34F3',
+    colorChannelings: 'black'
   },
   dark: {
     colorRoads: '#80C1FF',
@@ -121,7 +123,8 @@ const DEFAULT_COLORS = {
     colorAlchemicaKek: '#533A55',
     colorAlchemica: '#292929',
     colorNotInAuction: '#222222',
-    colorMyParcels: '#FA34F3'
+    colorMyParcels: '#FA34F3',
+    colorChannelings: 'white'
   }
 }
 
