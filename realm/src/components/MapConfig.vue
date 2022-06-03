@@ -95,9 +95,9 @@ import InputColor from './InputColor.vue'
 
 const DEFAULT_COLORS = {
   light: {
-    colorRoads: '#bbbbbb',
+    colorRoads: '#80C1FF',
     colorWalls: '#000000',
-    colorDistricts: '#FA34F3',
+    colorDistricts: '#ffffff',
     colorPaartners: '#bf91ff',
     colorLandmarks: '#5DFD7D',
     colorAlchemicaFud: '#C8E4C8',
@@ -110,7 +110,7 @@ const DEFAULT_COLORS = {
     colorMyParcels: '#FA34F3'
   },
   dark: {
-    colorRoads: '#4A4A4A',
+    colorRoads: '#80C1FF',
     colorWalls: '#A3A3A3',
     colorDistricts: '#FA34F3',
     colorPaartners: '#bf91ff',
@@ -133,13 +133,13 @@ const getDefaultValue = function () {
     showRoads: true,
     showWalls: true,
     showDistricts: true,
-    showPaartners: true,
-    showLandmarks: true,
+    showPaartners: false,
+    showLandmarks: false,
     showVortexes: true,
-    showAlchemicaFud: true,
-    showAlchemicaFomo: true,
-    showAlchemicaAlpha: true,
-    showAlchemicaKek: true,
+    showAlchemicaFud: false,
+    showAlchemicaFomo: false,
+    showAlchemicaAlpha: false,
+    showAlchemicaKek: false,
     ...colors,
     useOneAlchemicaColor: false,
     flagSelected: false
