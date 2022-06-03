@@ -97,7 +97,7 @@ import InputColor from './InputColor.vue'
 const DEFAULT_COLORS = {
   light: {
     colorRoads: '#80C1FF',
-    colorWalls: '#000000',
+    colorWalls: '#FFA500',
     colorDistricts: '#ffffff',
     colorPaartners: '#bf91ff',
     colorLandmarks: '#5DFD7D',
@@ -113,7 +113,7 @@ const DEFAULT_COLORS = {
   },
   dark: {
     colorRoads: '#80C1FF',
-    colorWalls: '#A3A3A3',
+    colorWalls: '#FFA500',
     colorDistricts: '#FA34F3',
     colorPaartners: '#bf91ff',
     colorLandmarks: '#5DFD7D',
